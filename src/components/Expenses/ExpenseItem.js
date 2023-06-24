@@ -10,15 +10,15 @@ const ExpenseItem = (props) => {
   console.log('ExpenseItem evaluated by React');
 
 
-  const clickHandler1 = () => {
+  const clickHandlerTitle = () => {
     setTitle("Updated!");
     console.log(title);
   };
-  const clickHandler2 = () => {
+  const clickHandlerDelete = () => {
     console.log('deleted!!');
   }
 
-  const clickHandler3 = () => {
+  const clickHandlerAmount = () => {
     setAmount(100);
     console.log(amount);
   }
@@ -32,9 +32,9 @@ const ExpenseItem = (props) => {
         amount={amount}
         locationOfItem={props.locationOfItem}
       />
-      <button onClick={clickHandler1}>Change Title</button>
-      <button onClick={clickHandler2}>Delete</button>
-      <button onClick={clickHandler3}>Change Amount</button>
+      <button onClick={clickHandlerTitle}>Change Title</button>
+      <button onClick={clickHandlerDelete}>Delete</button>
+      <button onClick={clickHandlerAmount}>Change Amount</button>
     </Card>
   );
 };
