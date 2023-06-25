@@ -36,9 +36,17 @@ const App = () => {
       locationOfItem: "IKEA",
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log('In app.js');
+    console.log(expense);
+    expenses.push(expense);
+    console.log(expenses);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
