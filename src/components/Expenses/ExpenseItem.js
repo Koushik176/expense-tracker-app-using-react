@@ -6,14 +6,16 @@ import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <ExpenseDetails
-        title={props.title}
-        amount={props.amount}
-        locationOfItem={props.locationOfItem}
-      />
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <ExpenseDetails
+          title={props.title}
+          amount={props.amount}
+          locationOfItem={props.locationOfItem}
+        />
+      </Card>
+    </li>
   );
 };
 

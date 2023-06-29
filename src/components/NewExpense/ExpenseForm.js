@@ -5,40 +5,22 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: '',
-  //   enteredAmount: '',
-  //   enteredDate: ''
-  // });
+  const [enteredLocationOfItem, setEnteredLocationOfItem] = useState("");
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-    //console.log(enteredTitle);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // })
   };
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-    //console.log(enteredAmount);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value
-    // })
-    // setUserInput((prevState) => {
-    //   return {...prevState, enteredTitle: event.target.value };
-    // });
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    //console.log(enteredDate);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value
-    // })
+  };
+
+  const locationOfItemChangeHandler = (event) => {
+    setEnteredLocationOfItem(event.target.value);
   };
 
   const submitHandler = (event) => {
@@ -48,12 +30,14 @@ const ExpenseForm = (props) => {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
+      locationOfItem: enteredLocationOfItem,
     };
 
     props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+    setEnteredLocationOfItem("");
   };
 
   return (
@@ -87,8 +71,19 @@ const ExpenseForm = (props) => {
             onChange={dateChangeHandler}
           />
         </div>
+        <div className="new-expense__control">
+          <label>locationOfItem</label>
+          <input
+            type="text"
+            value={enteredLocationOfItem}
+            onChange={locationOfItemChangeHandler}
+          />
+        </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
